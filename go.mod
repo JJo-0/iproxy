@@ -1,10 +1,11 @@
 module iproxy
 
-go 1.17
+go 1.26.0
 
 require (
 	github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5
-	github.com/elazarl/goproxy v0.0.0-20220901064549-fbd10ff4f5a1
+	github.com/elazarl/goproxy v1.9.2
+	golang.org/x/net v0.61.0
 )
 
-require golang.org/x/net v0.0.0-20220906165146-f3363e06e74c // indirect
+require golang.org/x/text v0.43.0 // indirect
