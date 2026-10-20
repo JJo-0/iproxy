@@ -1,5 +1,7 @@
 # 호환성 검증
 
+**한국어** · [English](compatibility.en.md) · [简体中文](compatibility.zh-CN.md) · [日本語](compatibility.ja.md) · [README](../README.md)
+
 `미검증`은 실패를 뜻하지 않습니다. 재현 가능한 실기기 결과가 아직 없다는 뜻입니다. Linux 자동 테스트와 크로스 컴파일만으로 iOS 지원을 확정하지 않습니다.
 
 | 아이폰 OS | iSH 설치·실행 | HTTP / HTTPS | SOCKS5 | PAC | 화면 잠금·백그라운드 |

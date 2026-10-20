@@ -1,5 +1,7 @@
 # iProxy
 
+**한국어** · [English](README.en.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md)
+
 아이폰의 iSH에서 실행하는 작은 HTTP / SOCKS5 프록시입니다. 아이폰 개인용 핫스팟에 연결한 Windows, Linux, Mac, iPad, iPhone에서 **프록시 설정을 지원하는 앱의 TCP 통신**을 전달합니다.
 
 > **iOS 15·16·17·18을 지원 목표로 정비 중이며, 각 버전의 실기기 검증은 아직 완료되지 않았습니다.** VPN이나 모든 앱의 트래픽을 전달하는 도구가 아닙니다.

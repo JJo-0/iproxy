@@ -1,5 +1,7 @@
 # 문제 해결
 
+**한국어** · [English](troubleshooting.en.md) · [简体中文](troubleshooting.zh-CN.md) · [日本語](troubleshooting.ja.md) · [README](../README.md)
+
 | 증상 | 확인할 사항 |
 | --- | --- |
 | 다운로드 404 | 새 릴리스가 아직 게시되지 않았거나 파일 이름이 다른 경우입니다. Releases의 파일 목록을 확인하거나 README의 소스 빌드를 사용하세요. |
