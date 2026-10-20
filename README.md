@@ -2,14 +2,14 @@
 
 아이폰의 iSH에서 실행하는 작은 HTTP / SOCKS5 프록시입니다. 아이폰 개인용 핫스팟에 연결한 Windows, Linux, Mac, iPad, iPhone에서 **프록시 설정을 지원하는 앱의 TCP 통신**을 전달합니다.
 
-> **iOS 15·16·17·18을 지원 목표로 정비 중이며, 각 버전의 실기기 검증은 아직 완료되지 않았습니다.** VPN이나 모든 앱의 트래픽을 전달하는 도구가 아닙니다. 통신사의 테더링 허용, 한도 우회, 무제한 사용은 보장하지 않습니다.
+> **iOS 15·16·17·18을 지원 목표로 정비 중이며, 각 버전의 실기기 검증은 아직 완료되지 않았습니다.** VPN이나 모든 앱의 트래픽을 전달하는 도구가 아닙니다.
 
 ## 아이폰에서 설치
 
 탈옥이나 Mac/Xcode는 필요하지 않습니다. [iSH Shell](https://apps.apple.com/app/ish-shell/id1436902243)을 설치하세요. iSH는 x86 Linux 환경이므로 아이폰에서도 **`linux-386` 파일**을 사용합니다. `darwin-arm64`는 Mac용입니다.
 
 1. 설정 → 개인용 핫스팟 → **다른 사람의 연결 허용**을 켭니다. 다른 기기를 이 핫스팟 Wi-Fi에 연결합니다.
-2. [Releases](https://github.com/JJo-0/iproxy/releases)에서 게시된 버전이 있는지 확인합니다. 아래 명령은 새 빌드의 릴리스가 게시된 뒤 사용할 수 있습니다. 아직 없다면 아래 소스 빌드 방법을 사용하세요.
+2. [Releases](https://github.com/JJo-0/iproxy/releases)에서 게시된 버전이 있는지 확인합니다. 아래 명령은 새 빌드의 릴리스가 게시된 뒤 사용할 수 있습니다. 아직 없다면 [Actions](https://github.com/JJo-0/iproxy/actions/workflows/ci.yml)의 해당 브랜치 성공 실행에서 `iproxy-binaries` 아티팩트를 내려받아 압축을 풀고, 아래 파일 복사 방법으로 설치할 수 있습니다 (GitHub 로그인 필요). 또는 소스에서 빌드하세요.
 3. iSH에서 다음 명령을 실행합니다. 다운로드 또는 체크섬 확인이 실패하면 설치가 중단됩니다.
 
 ```sh
@@ -78,16 +78,15 @@ export all_proxy=socks5h://172.20.10.1:1080
 
 사용을 끝내면 각 기기의 프록시 설정을 **끔/없음**으로 되돌리세요. 셸에서는 `unset http_proxy https_proxy all_proxy`를 실행합니다. 프록시를 켜 둔 채 핫스팟을 끊으면 인터넷이 안 되는 것처럼 보일 수 있습니다.
 
-## 지원 범위와 통신사
+## 지원 범위
 
 - **Wi-Fi 핫스팟 연결**을 기본 경로로 안내합니다. USB/Bluetooth는 OS·드라이버에 따라 다르며 별도 실험 대상입니다.
 - HTTP, HTTPS CONNECT, SOCKS5 TCP를 제공합니다. UDP, QUIC/HTTP3, 게임·메신저·VPN 등 모든 앱의 동작은 보장하지 않습니다. 앱의 TCP 대체 경로가 필요할 수 있습니다.
 - PAC URL을 직접 입력하는 방식입니다. WPAD 자동 검색 기능은 제공하지 않습니다.
 - 기본 PAC는 HTTP → SOCKS5 순서이며 `DIRECT`를 포함하지 않습니다. `-direct`를 켜면 프록시 실패 시 일반 연결로 전환할 수 있습니다. PAC 자체를 무시하는 앱까지 막는 기능은 아닙니다.
-- KT·SKT·LG U+ 및 알뜰폰은 **검증 전**입니다. `sky`가 SKT인지 스카이라이프 등 다른 사업자인지에 따라 따로 기록해야 합니다. 통신사명만으로 판단할 수 없으며 요금제·테더링 잔여량·iOS·기종을 함께 확인해야 합니다.
 - iOS가 iSH를 백그라운드에서 정지하거나 종료할 수 있습니다. `-l`은 `/dev/location`을 읽는 실험 옵션이며 지속 실행을 보장하지 않습니다. 좌표는 저장·출력하지 않습니다. 위치 장치가 없어도 프록시는 계속 실행됩니다.
 
-버전별·기기별·통신사별 결과는 [호환성 검증표](docs/compatibility.md)에 기록합니다. 문제가 있으면 [문제 해결](docs/troubleshooting.md)을 먼저 확인하세요.
+버전별·기기별 결과는 [호환성 검증표](docs/compatibility.md)에 기록합니다. 문제가 있으면 [문제 해결](docs/troubleshooting.md)을 먼저 확인하세요.
 
 ## 옵션
 
@@ -137,4 +136,4 @@ iproxy
 - [Apple: 개인용 핫스팟 설정 및 연결](https://support.apple.com/en-us/111785)
 - [Apple: Mac 프록시 설정](https://support.apple.com/guide/mac-help/change-proxy-settings-on-mac-mchlp2591/mac)
 
-이 자료는 플랫폼의 설정 방법을 설명하며, 이 프로젝트나 특정 요금제의 실기기 검증을 대신하지 않습니다.
+이 자료는 플랫폼의 설정 방법을 설명하며, 이 프로젝트의 실기기 검증을 대신하지 않습니다.
